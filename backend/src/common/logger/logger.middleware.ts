@@ -60,7 +60,7 @@ export class LoggerMiddleware implements NestMiddleware {
       return rawResponse.apply(res, restArgs);
     };
 
-    res.end = (...restArgs: any[]) => {
+    res.end = (...restArgs: any[]): any => {
       if (restArgs[0]) {
         chunks.push(Buffer.from(restArgs[0]));
       }
@@ -71,7 +71,7 @@ export class LoggerMiddleware implements NestMiddleware {
         headers: res.getHeaders(),
       };
       this.logger.log(JSON.stringify(logPayload), 'HttpResponse');
-      rawResponseEnd.apply(res, restArgs);
+      return rawResponseEnd.apply(res, restArgs);
     };
 
     next();

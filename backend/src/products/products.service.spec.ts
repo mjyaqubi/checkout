@@ -28,23 +28,21 @@ describe('ProductsService', () => {
     expect(await service.getById('wf')).toEqual(mockProductsList[0]);
   });
 
-  it('should return not found error', async done => {
+  it('should return not found error', async () => {
     try {
       await service.getById('a');
-      done('should throw error');
+      fail('should throw error');
     } catch (err) {
       expect(err.status).toEqual(HttpStatus.NOT_FOUND);
-      done();
     }
   });
 
-  it('should return bad request', async done => {
+  it('should return bad request', async () => {
     try {
       await service.getByIds(['a']);
-      done('should throw error');
+      fail('should throw error');
     } catch (err) {
       expect(err.status).toEqual(HttpStatus.BAD_REQUEST);
-      done();
     }
   });
 

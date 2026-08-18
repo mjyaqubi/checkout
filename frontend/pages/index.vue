@@ -34,15 +34,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Emit } from 'nuxt-property-decorator'
-import { mapActions, mapState } from 'vuex'
+import { Component, Vue } from 'nuxt-property-decorator'
 import axios from 'axios'
 import { CartActionTypes, CartItem } from '../store/cart'
 
 @Component({
   name: 'HomePage',
 })
-export default class Home extends Vue {
+export default class HomePage extends Vue {
   cartItems: CartItem[] = []
 
   asyncData() {

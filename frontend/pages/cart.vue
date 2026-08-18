@@ -64,9 +64,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Emit } from 'nuxt-property-decorator'
-import { mapActions, mapState } from 'vuex'
-import axios from 'axios'
+import { Component, Vue } from 'nuxt-property-decorator'
 import {
   CartActionTypes,
   CartGetterTypes,
@@ -78,7 +76,7 @@ import {
 @Component({
   name: 'CartPage',
 })
-export default class Home extends Vue {
+export default class CartPage extends Vue {
   promotionCode: string = ''
   cartItems: CartItem[] = []
   total: number = 0
@@ -91,18 +89,16 @@ export default class Home extends Vue {
 
   refresh() {
     this.cartItems = []
-    this.cartItems = this.$store.getters[
-      `${namespace}/${CartGetterTypes.CART_ITEMS}`
-    ]
+    this.cartItems =
+      this.$store.getters[`${namespace}/${CartGetterTypes.CART_ITEMS}`]
     this.total = 0
     this.cartItems.forEach((element) => {
       if (element.quantity > 0) {
         this.total += element.price * element.quantity
       }
     })
-    this.discount = this.$store.getters[
-      `${namespace}/${CartGetterTypes.CART_DISCOUNT}`
-    ]
+    this.discount =
+      this.$store.getters[`${namespace}/${CartGetterTypes.CART_DISCOUNT}`]
     this.payable = this.total - this.discount
   }
 

@@ -26,7 +26,7 @@ describe('CheckoutService', () => {
   });
 
   it('should return the result after promotion check', async () => {
-    let req = <CheckoutRequest>{
+    const req = <CheckoutRequest>{
       products: [{ id: 'wf', quantity: 2 }],
     };
     expect(await service.validation(req)).toEqual(<CheckoutResponse>{
@@ -37,7 +37,7 @@ describe('CheckoutService', () => {
   });
 
   it('should return the result after promotion check', async () => {
-    let req = <CheckoutRequest>{
+    const req = <CheckoutRequest>{
       promotionCode: 'RRD4D32',
       products: [{ id: 'wf', quantity: 6 }],
     };
@@ -49,7 +49,7 @@ describe('CheckoutService', () => {
   });
 
   it('should return the result after promotion check', async () => {
-    let req = <CheckoutRequest>{
+    const req = <CheckoutRequest>{
       promotionCode: 'YYGWKJD',
       products: [
         { id: 'wf', quantity: 1 },
@@ -64,7 +64,7 @@ describe('CheckoutService', () => {
   });
 
   it('should show invalid promotion code error', async () => {
-    let req = <CheckoutRequest>{
+    const req = <CheckoutRequest>{
       promotionCode: 'abcd',
       products: [{ id: 'wf', quantity: 1 }],
     };
@@ -77,7 +77,7 @@ describe('CheckoutService', () => {
   });
 
   it('should return all zero as the amount is zero', async () => {
-    let req = <CheckoutRequest>{
+    const req = <CheckoutRequest>{
       promotionCode: 'abcd',
       products: [{ id: 'wf', quantity: 0 }],
     };
