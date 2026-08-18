@@ -80,5 +80,18 @@
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "overrides": {
+    "body-parser": "^1.20.3",
+    "braces": "^3.0.3",
+    "cookie": "^0.7.0",
+    "cross-spawn": "^7.0.6",
+    "express": "^4.21.2",
+    "micromatch": "^4.0.8",
+    "path-to-regexp": "^0.1.12",
+    "qs": "^6.13.0",
+    "semver": "^7.6.2",
+    "tar": "^6.2.1",
+    "tmp": "^0.2.3"
   }
 }
